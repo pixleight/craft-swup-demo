@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>Welcome to Craft CMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="ltr">
+  <div class="relative">
+    <header class="relative z-10 sticky top-0">
+      {% include "_nav" %}
+    </header>
+    <main id="swup">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/@swup/slide-theme@2"></script>
+  <script src="https://unpkg.com/swup@4"></script>
+  <script>
+    const swup = new Swup({
+      plugins: [
+        new SwupSlideTheme({
+          reversed: true,
+        })
+      ]
+    });
+  </script>
+</body>
+</html>

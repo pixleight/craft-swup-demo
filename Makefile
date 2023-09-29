@@ -73,7 +73,7 @@ up:
 			echo "### Using port: $$DEV_SERVER_PORT"; \
 		fi; \
 		cp -n example.env .env; \
-		docker compose up; \
+		docker compose up -d; \
     fi
 %:
 	@:

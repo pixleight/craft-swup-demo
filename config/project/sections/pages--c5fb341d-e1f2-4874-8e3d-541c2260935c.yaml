@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+handle: pages
+name: Pages
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  f255ef6d-0c55-4bdc-9ced-f610bbb3bed6: # $CRAFT_SITE_NAME
+    enabledByDefault: true
+    hasUrls: true
+    template: _entry
+    uriFormat: '{slug}'
+structure:
+  maxLevels: 1
+  uid: 5118ff8b-5254-4879-bf66-f1ebb39ff500
+type: structure

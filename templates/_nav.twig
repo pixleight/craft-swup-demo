@@ -1,0 +1,36 @@
+{% set pages = craft.entries.section('pages').all() %}
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <a href="/">
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&amp;shade=500" alt="Your Company">
+          </a>
+        </div>
+        <div class="hidden sm:block ml-6">
+          <div class="flex gap-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            {% nav page in pages %}
+              {% set isCurrent = craft.app.request.fullUri == page.uri %}
+              <a href="/{{ page.uri }}" class="{{ isCurrent ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">{{ page.title }}</a>
+            {% endnav %}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      {% nav page in pages %}
+        {% set isCurrent = craft.app.request.fullUri == page.uri %}
+        <a href="/{{ page.uri }}" class="{{ isCurrent ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">{{ page.title }}</a>
+      {% endnav %}
+    </div>
+  </div>
+</nav>
